@@ -1,0 +1,37 @@
+diff --git a/arch/arm/boot/dts/overlays/imx519-overlay.dts b/arch/arm/boot/dts/overlays/imx519-overlay.dts
+index ada1224dd19b..76e8aeb08d4c 100644
+--- a/arch/arm/boot/dts/overlays/imx519-overlay.dts
++++ b/arch/arm/boot/dts/overlays/imx519-overlay.dts
+@@ -27,6 +27,8 @@
+ 				VDIG-supply = <&cam_dummy_reg>;	/* 1.8v */
+ 				VDDL-supply = <&cam_dummy_reg>;	/* 1.2v */
+ 
++				lens-focus = <&ak7375>;
++
+ 				rotation = <0>;
+ 				orientation = <2>;
+ 
+@@ -41,6 +43,14 @@
+ 					};
+ 				};
+ 			};
++
++			ak7375: ak7375@0c {
++				compatible = "asahi-kasei,ak7375";
++				reg = <0x0c>;
++				status = "okay";
++				VANA-supply = <&cam1_reg>;	/* 2.8v */
++			};
++
+ 		};
+ 	};
+ 
+@@ -91,6 +101,7 @@
+ 		       <&csi_frag>, "target:0=",<&csi0>,
+ 		       <&clk_frag>, "target:0=",<&cam0_clk>,
+ 		       <&imx519>, "clocks:0=",<&cam0_clk>,
+-		       <&imx519>, "VANA-supply:0=",<&cam0_reg>;
++		       <&imx519>, "VANA-supply:0=",<&cam0_reg>,
++		       <&ak7375>, "VANA-supply:0=",<&cam0_reg>;
+ 	};
+ };

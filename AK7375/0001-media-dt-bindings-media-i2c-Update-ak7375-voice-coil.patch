@@ -1,0 +1,29 @@
+From 38327c5fbd9c9d6da9dd5ff5a33a8cd0150622e3 Mon Sep 17 00:00:00 2001
+From: Lee Jackson <info@arducam.com>
+Date: Tue, 14 Sep 2021 11:05:16 +0800
+Subject: [PATCH 1/2] media: dt-bindings: media: i2c: Update ak7375 voice coil
+ len binding
+
+Add optional VANA-supply property to ak7375 voice coil len binding.
+
+Signed-off-by: Lee Jackson <info@arducam.com>
+---
+ Documentation/devicetree/bindings/media/i2c/ak7375.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/media/i2c/ak7375.txt b/Documentation/devicetree/bindings/media/i2c/ak7375.txt
+index aa3e24b41241..8aedd67c1fab 100644
+--- a/Documentation/devicetree/bindings/media/i2c/ak7375.txt
++++ b/Documentation/devicetree/bindings/media/i2c/ak7375.txt
+@@ -6,3 +6,7 @@ Mandatory properties:
+ 
+ - compatible: "asahi-kasei,ak7375"
+ - reg: I2C slave address
++
++Optional properties:
++
++- VANA-supply: supply of voltage for VANA pin
+\ No newline at end of file
+-- 
+2.17.1
+
